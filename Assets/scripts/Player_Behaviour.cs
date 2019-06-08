@@ -195,6 +195,7 @@ public class Player_Behaviour : MonoBehaviour
 
             Checkpoint.check = false;
 
+            GetComponent<AudioSource>().Play();
 
 
         }
