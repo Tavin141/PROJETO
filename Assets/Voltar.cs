@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Nemu : MonoBehaviour
+public class Voltar : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public void Voltar()
+    public void voltar()
     {
         SceneManager.LoadScene("Menu");
-
     }
 }
