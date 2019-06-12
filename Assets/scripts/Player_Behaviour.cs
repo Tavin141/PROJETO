@@ -55,6 +55,7 @@ public class Player_Behaviour : MonoBehaviour
         tr = GetComponent<Transform>();
         an = GetComponent<Animator>();
 
+        vida_perdida5.morto = false;
         estaVivo = true;
         viradoParaDireita = true;
         vida = 5;
@@ -63,6 +64,10 @@ public class Player_Behaviour : MonoBehaviour
 
     void Update()
     {
+        if (vida <= 0)
+        {
+            morrendo();
+        }
 
         estaNoChao = Physics2D.OverlapCircle(verificaChao.position, raioVchao, solido);
         estaNaParede = Physics2D.OverlapCircle(verificaParede.position, raioVp, solido);
@@ -74,9 +79,7 @@ public class Player_Behaviour : MonoBehaviour
 
         if (vida_perdida5.morto)
         {
-            morte();
-           
-            SceneManager.LoadScene("Menu");
+            morrendo();
         }
 
         if (estaVivo)
@@ -278,7 +281,11 @@ public class Player_Behaviour : MonoBehaviour
 
 
     }
-
+    public void morrendo()
+    {
+        SceneManager.LoadScene("Game Over");
+    }
+   
 
 }
 
